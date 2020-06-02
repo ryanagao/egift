@@ -1,0 +1,119 @@
+{% extends 'egiftadmin/layout/main.html'  %}
+{% load static %}
+
+{% block content %}
+<div class="row" id="super-admin-dashboard">
+    <div class="col-sm-6 col-lg-3">
+        <div class="card text-white bg-primary">
+            <div class="card-body pb-0">
+                <div class="btn-group float-right">
+                    <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-navicon"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#"> All (0)</a>
+                        <a class="dropdown-item" href="#"> This 2020 (0) </a>
+                    </div>
+                </div>
+                <div class="text-value">0</div>
+                <div><b>( 0 )</b> Orders this year</div>
+            </div>
+            <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                <canvas class="chart" id="card-chart1-order" height="70"></canvas>
+            </div>
+        </div> 
+    </div>
+
+    <div class="col-sm-6 col-lg-3">
+        <div class="card text-white bg-success">
+            <div class="card-body pb-0">
+                <div class="btn-group float-right">
+                    <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-navicon"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Total Sales (0.00)</a>
+                    </div>
+                </div>
+                <div class="text-value">0.00</div>
+                <div><b>( 0 )</b> Sales this year</div>
+            </div>
+            <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                <canvas class="chart" id="card-chart3" height="70"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-3">
+        <div class="card text-white bg-info">
+            <div class="card-body pb-0">
+                <div class="btn-group float-right">
+                    <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-navicon"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#"> (0) All</a>
+                        <a class="dropdown-item" href="#">(0) Approved</a>
+                        <a class="dropdown-item" href="#">(0) For Approval</a>
+                    </div>
+                </div>
+                <div class="text-value">0</div>
+                <div> <b>( 0 )</b> Egifts Creation this year</div>
+            </div>
+            <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                <canvas class="chart" id="card-chart2" height="70"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-3">
+        <div class="card text-white bg-danger">
+            <div class="card-body pb-0">
+                <div class="btn-group float-right">
+                    <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-navicon"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#">This 2020  (0)</a>
+                        <a class="dropdown-item" href="#">All (0)</a>
+                    </div>
+                </div>
+                <div class="text-value">0</div>
+                <div> <b>( 0 )</b> Egifts Usage this year</div>
+            </div>
+            <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                <canvas class="chart" id="card-chart4" height="70"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-5">
+        <h4 class="card-title mb-0">E-Gifts</h4>
+        <div class="small text-muted">November 2020</div>
+    </div>
+    <div class="col-sm-7 d-none d-md-block">
+        <div class="float-right" style="display: flex;">
+            <div style="width: 240px;">
+                <select class="form-control" id="select-main-chart">
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>                  
+                </select>
+            </div>
+            <div>
+                <button class="btn btn-primary">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /.row-->
+<div class="chart-wrapper" style="height:300px;margin-top:40px;" id="main-chart-wrapper">
+    <canvas class="chart" id="main-chart" height="300"></canvas>
+</div>
+{% endblock %}

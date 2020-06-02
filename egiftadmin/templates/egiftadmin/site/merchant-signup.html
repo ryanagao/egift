@@ -1,0 +1,24 @@
+{% extends 'egiftadmin/layout/site.html' %}
+{% load static %}
+
+{% block content %}
+<section class="content-section">
+    <div class="container width-800 pad-t-b-50">
+        <div class="col col-1-2 v-align-middle center-767">
+            <div class="size-200 font-bold width-480 marg-center lht-adj">Sign Up for A Business Account</div>
+            <div class="width-480 marg-center marg-t-20">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring.</div>
+            <form class="width-480 marg-center" method="POST">
+                {% csrf_token %}
+                {{ merchant }}
+                <input  class="marg-t-20" type="submit" value="Submit">
+            </form>
+            <div class="size-75 marg-t-20">
+                Already have an Account? <a href="{% url 'login' %}">Login</a>
+            </div>
+        </div>
+        <div class="col col-1-2 v-align-middle text-center hide-767">
+            <img class="width-320" src="{% static 'egiftadmin/images/sign-up-img.png' %}" alt="Sign-Up" width=500 height=500>
+        </div>
+    </div>
+</section>
+{% endblock %}

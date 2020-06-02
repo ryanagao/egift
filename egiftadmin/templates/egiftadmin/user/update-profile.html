@@ -1,0 +1,134 @@
+{% extends 'egiftadmin/layout/main.html'  %}
+{% load static %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'profile' %}">Profile</a></li>
+    <li class="breadcrumb-item active">Update Credentials</li>
+{%endblock%}
+
+{% block content %}
+<div class="user-update">
+    <h2>Update Profile</h2><hr>
+	<div class="profile-form">
+		<form id="w0" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			{% if form.errors %}
+				{% for field in form %}
+					{% for error in field.errors %}
+						<div class="alert alert-danger">
+							<strong>{{ error|escape }}</strong>
+						</div>
+					{% endfor %}
+				{% endfor %}
+				{% for error in form.non_field_errors %}
+					<div class="alert alert-danger">
+						<strong>{{ error|escape }}</strong>
+					</div>
+				{% endfor %}
+			{% endif %}
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group field-profile-name required">
+						<label class="control-label" for="profile-name">Merchant Name</label>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text">
+									<i class="icon-user"></i>
+								</span>
+							</div>
+							{{ form.name }}
+						</div>
+						<div class="help-block"></div>
+					</div>                
+					<div class="form-group field-profile-description required">
+						<label class="control-label" for="profile-description">Merchant Description</label>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text">
+									<i class="icon-docs"></i>
+								</span>
+							</div>
+							{{ form.description }}
+						</div>
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-profile-tel_no required">
+						<label class="control-label" for="profile-tel_no">Telephone No</label>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text">
+									<i class="icon-phone"></i>
+								</span>
+							</div>
+							{{ form.tel_no }}
+						</div>
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-profile-address required">
+						<label class="control-label" for="profile-address">Address</label>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text">
+									<i class="icon-location-pin"></i>
+								</span>
+							</div>
+							{{ form.address }}
+						</div>
+						<div class="help-block"></div>
+					</div>                
+					<div class="form-group field-profile-terms_and_condition">
+						<label class="control-label" for="profile-terms_and_condition">Terms And Condition</label>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text">
+									<i class="icon-docs"></i>
+								</span>
+							</div>
+							{{ form.terms_and_condition }}
+						</div>
+						<div class="help-block"></div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group field-user-email required">
+						<label class="control-label" for="user-email">Email</label>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text">
+									<i class="icon-envelope"></i>
+								</span>
+							</div>
+							{{ form.email }}
+						</div>
+						<div class="help-block"></div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group field-profile-logo_input">
+								<label class="control-label" for="profile-logo_input">Upload Company Image</label>
+								<input type="hidden" name="logo" value=""><input type="file" id="profile-logo_input" class="image-input" name="logo">
+								<div class="help-block"></div>
+							</div>
+							<h1><i class="fa fa-spinner"></i></h1>
+							<img id="image-preview" src="{{ profile.logo.url }}" alt="" class="img-thumbnail" width="200" height="200">
+						</div>
+						<div class="col-md-6">
+							<div class="form-group field-profile-logo_banner_input">
+								<label class="control-label" for="profile-logo_banner_input">Upload Company Banner Image</label>
+								<input type="hidden" name="logo_banner" value=""><input type="file" id="profile-logo_banner_input" class="image-input" name="logo_banner">
+								<div class="help-block"></div>
+							</div>
+							<h1><i class="fa fa-spinner"></i></h1>
+							<img id="image-preview-banner" src="{{ profile.logo_banner.url }}" alt="" class="img-thumbnail" width="200" height="200">
+						</div>
+					</div>	
+				</div>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-success">Save</button>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}

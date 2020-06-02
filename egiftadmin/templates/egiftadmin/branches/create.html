@@ -1,0 +1,77 @@
+{% extends 'egiftadmin/layout/main.html'  %}
+{% load static %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'branches' %}">Branches</a></li>
+    <li class="breadcrumb-item active">Create Branches</li>
+{% endblock %}
+
+{% block content %}
+<div class="branches-create">
+
+    <h2>Create Branches</h2> <hr>
+    <div id="map" style-"height:="" 100px;"=""></div>
+    <div class="branches-form">
+        <form id="w0" action="/branches/create" method="post">
+            <div class="row">
+			    <div class="col-md-6">
+				    <p class="lead">Basic Information</p>
+				    <div class="form-group field-branches-name required">
+                        <label class="control-label" for="branches-name">Branch Name</label>
+                        <input type="text" id="branches-name" class="form-control" name="Branches[name]" maxlength="191" aria-required="true">
+                        <div class="help-block"></div>
+                    </div>				
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group field-branches-latitude required">
+                                <label class="control-label" for="branches-latitude">Latitude</label>
+                                <input type="text" id="branches-latitude" class="form-control" name="Branches[latitude]" maxlength="32" aria-required="true">
+                                <div class="help-block"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group field-branches-longitude required">
+                                <label class="control-label" for="branches-longitude">Longitude</label>
+                                <input type="text" id="branches-longitude" class="form-control" name="Branches[longitude]" maxlength="32" aria-required="true">
+                                <div class="help-block"></div>
+                            </div>
+                        </div>
+                    </div>
+
+				    <div class="form-group field-branches-description required">
+                        <label class="control-label" for="branches-description">Description</label>
+                        <textarea id="branches-description" class="form-control" name="Branches[description]" rows="6" aria-required="true"></textarea>
+                        <div class="help-block"></div>
+                    </div> 
+			    </div>
+			    <div class="col-md-6">
+                    <p class="lead">Mobile Scanner Credentials</p>
+                    <div class="form-group field-branches-username required">
+                        <label class="control-label" for="branches-username">Username</label>
+                        <input type="text" id="branches-username" class="form-control" name="Branches[username]" maxlength="256" aria-required="true">
+                        <div class="help-block"></div>
+                    </div>
+                    <div class="form-group field-branches-password required">
+                        <label class="control-label" for="branches-password">Password</label>
+                        <input type="password" id="branches-password" class="form-control" name="Branches[password]" maxlength="256" aria-required="true">
+                        <div class="help-block"></div>
+                    </div>
+                    <div class="form-group field-branches-password_confirm required">
+                        <label class="control-label" for="branches-password_confirm">Password Confirm</label>
+                        <input type="password" id="branches-password_confirm" class="form-control" name="Branches[password_confirm]" maxlength="256" aria-required="true">
+                        <div class="help-block"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row"></div>
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

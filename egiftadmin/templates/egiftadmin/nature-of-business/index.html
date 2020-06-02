@@ -1,0 +1,44 @@
+{% extends 'egiftadmin/layout/main.html'  %}
+{% load static %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">Nature Of Businesses</li>
+{% endblock %}
+
+{% block content %}
+<div class="nature-of-business-index">
+    <h2>Nature Of Businesses</h2> <hr>
+    
+    <p><a class="btn btn-success" href="/nature-of-business/create">Create Nature Of Businesses</a></p> 
+    
+    <div class="table-responsive">
+        <div id="w0" class="grid-view">
+            <table class="table table-sm table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th><a href="/nature-of-business?sort=merchant_name" data-sort="merchant_name">Merchant Name</a></th>
+                        <th><a href="/nature-of-business?sort=name" data-sort="name">Name</a></th><th><a href="/nature-of-business?sort=description" data-sort="description">Description</a></th>
+                        <th width="130">&nbsp;</th>
+                    </tr>
+                    <tr id="w0-filters" class="filters">
+                        <td>&nbsp;</td>
+                        <td><input type="text" class="form-control" name="NatureOfBusinessSearch[merchant_name]"></td>
+                        <td><input type="text" class="form-control" name="NatureOfBusinessSearch[name]"></td>
+                        <td><input type="text" class="form-control" name="NatureOfBusinessSearch[description]"></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="5"><div class="empty">No results found.</div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>    
+    </div>
+</div>
+{% endblock %}
+
+
+

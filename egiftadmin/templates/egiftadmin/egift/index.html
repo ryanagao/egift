@@ -1,0 +1,27 @@
+{% extends 'egiftadmin/layout/main.html'  %}
+{% load static %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">Egifts</li>
+{% endblock %}
+
+{% block content %}
+<div class="egift-index">
+
+    
+    <p>
+        <a class="btn btn-success" href="/egift/create">Create Egift</a>    </p>
+
+    <div id="w0" class="grid-view">
+<table class="table table-sm table-striped table-bordered"><thead>
+<tr><th>#</th><th><a href="/egift?sort=name" data-sort="name">Egift Name</a></th><th><a href="/egift?sort=description" data-sort="description">Description</a></th><th><a href="/egift?sort=stock" data-sort="stock">Stock</a></th><th><a href="/egift?sort=promo" data-sort="promo">On-Promo</a></th><th width="130">&nbsp;</th></tr><tr id="w0-filters" class="filters"><td>&nbsp;</td><td><input type="text" class="form-control" name="EgiftSearch[name]"></td><td><input type="text" class="form-control" name="EgiftSearch[description]"></td><td><input type="text" class="form-control" name="EgiftSearch[stock]"></td><td><select class="form-control" name="EgiftSearch[promo]">
+<option value=""></option>
+<option value="0">No</option>
+<option value="1">Yes</option>
+</select></td><td>&nbsp;</td></tr>
+</thead>
+<tbody>
+<tr><td colspan="6"><div class="empty">No results found.</div></td></tr>
+</tbody></table>
+</div></div>
+{% endblock %}

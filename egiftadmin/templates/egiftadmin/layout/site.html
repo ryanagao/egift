@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Merchant Login</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'egiftadmin/site/css/style.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+        <link rel="shortcut icon" type="image/png" href="https://www.vienashoes.com/wp-content/uploads/2019/06/egift-site-icon-1.png"/>
+    </head>
+
+    <body>
+        <header class="content-header">
+            <div class="container">
+                <a href="https://www.vienashoes.com/" class="logo-main  link-white"><img src="{% static 'egiftadmin/images/default/eGiftRewards-logo-app-icon-colored.png' %}" alt="eGift Rewards" width=200 height=83 ></a>
+            </div>
+        </header>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html> 

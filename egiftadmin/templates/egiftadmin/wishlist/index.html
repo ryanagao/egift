@@ -1,0 +1,31 @@
+{% extends 'egiftadmin/layout/main.html'  %}
+{% load static %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">Wishlists</li>
+{% endblock %}
+{% block content %}
+<div class="wishlist-index">
+
+    <h2>Wishlists</h2> <hr>  
+    
+     
+    
+
+    <div id="w0" class="grid-view"><div class="summary">Showing <b>1-9</b> of <b>9</b> items.</div>
+<table class="table table-sm table-striped table-bordered"><thead>
+<tr><th>#</th><th><a href="/wishlist?sort=userEmail" data-sort="userEmail">User Email</a></th><th><a href="/wishlist?sort=egiftName" data-sort="egiftName">Egift Name</a></th><th><a href="/wishlist?sort=created_at" data-sort="created_at">Created At</a></th><th width="130">&nbsp;</th></tr><tr id="w0-filters" class="filters"><td>&nbsp;</td><td><input type="text" class="form-control" name="WishlistSearch[userEmail]"></td><td><input type="text" class="form-control" name="WishlistSearch[egiftName]"></td><td><input type="text" class="form-control" name="WishlistSearch[created_at]"></td><td>&nbsp;</td></tr>
+</thead>
+<tbody>
+<tr data-key="10"><td>1</td><td>jeffrey@gmail.com</td><td>Egift Name</td><td>2019-10-16 12:37:48</td><td> <a class="btn btn-info btn-sm" href="/wishlist/view/10" title="View"><i class="fa fa-th-large"></i></a></td></tr>
+<tr data-key="13"><td>2</td><td>test@gmail.com</td><td>The Best egift</td><td>2019-10-17 15:17:47</td><td> <a class="btn btn-info btn-sm" href="/wishlist/view/13" title="View"><i class="fa fa-th-large"></i></a></td></tr>
+<tr data-key="14"><td>3</td><td>dan@gmail.com</td><td>The Best egift</td><td>2019-11-23 23:45:18</td><td> <a class="btn btn-info btn-sm" href="/wishlist/view/14" title="View"><i class="fa fa-th-large"></i></a></td></tr>
+<tr data-key="15"><td>4</td><td>dan@gmail.com</td><td>Egift Name</td><td>2019-11-24 03:36:05</td><td> <a class="btn btn-info btn-sm" href="/wishlist/view/15" title="View"><i class="fa fa-th-large"></i></a></td></tr>
+<tr data-key="16"><td>5</td><td>aj@gmail.com</td><td>The Best egift</td><td>2019-11-24 04:01:07</td><td> <a class="btn btn-info btn-sm" href="/wishlist/view/16" title="View"><i class="fa fa-th-large"></i></a></td></tr>
+<tr data-key="17"><td>6</td><td>kimmy@gmail.com</td><td>The Best egift</td><td>2019-12-08 05:07:36</td><td> <a class="btn btn-info btn-sm" href="/wishlist/view/17" title="View"><i class="fa fa-th-large"></i></a></td></tr>
+<tr data-key="18"><td>7</td><td>kimmy@gmail.com</td><td>Egift Name</td><td>2019-12-08 05:07:37</td><td> <a class="btn btn-info btn-sm" href="/wishlist/view/18" title="View"><i class="fa fa-th-large"></i></a></td></tr>
+<tr data-key="19"><td>8</td><td>kimmy@gmail.com</td><td>alley sale part 2</td><td>2019-12-08 05:07:40</td><td> <a class="btn btn-info btn-sm" href="/wishlist/view/19" title="View"><i class="fa fa-th-large"></i></a></td></tr>
+<tr data-key="20"><td>9</td><td>kimmy@gmail.com</td><td>vikings sale</td><td>2019-12-08 05:07:43</td><td> <a class="btn btn-info btn-sm" href="/wishlist/view/20" title="View"><i class="fa fa-th-large"></i></a></td></tr>
+</tbody></table>
+</div></div>
+{% endblock %}

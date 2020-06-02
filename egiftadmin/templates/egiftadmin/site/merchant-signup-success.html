@@ -1,0 +1,19 @@
+{% extends 'egiftadmin/layout/site.html' %}
+{% load static %}
+
+{% block content %}
+<section class="content-section">
+    <div class="container width-800 pad-t-b-50 text-center">
+        <div class="width-640 marg-center v-align-middle">
+            <img class="width-320" src="{% static 'egiftadmin/images/merchant-success.png' %}" alt="Sign-Up Success!" width=500 height=300>
+        </div>
+        <div class="width-640 marg-center v-align-middle center-767">
+            <div class="size-300 font-bold width-480 marg-center lht-adj">Sign Up Success!</div>
+            <div class="width-480 marg-center marg-t-20">We received your registration. We will contact you as soon as possible to create your eGift account.</div>
+            <p>
+                <a class="btn-submit marg-t-20" href="{% url 'dashboard' %}">Back to Home</a>
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}

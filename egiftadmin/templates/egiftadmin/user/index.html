@@ -1,0 +1,40 @@
+{% extends 'egiftadmin/layout/main.html'  %}
+{% load static %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">Users</li>
+{% endblock %}
+{% block content %}
+<div class="user-index">
+    <h2>Users</h2> <hr>
+
+    
+    <p><a class="btn btn-success" href="/user/create">Create Users</a></p> 
+    
+
+    <div id="w0" class="grid-view"><div class="summary">Showing <b>1-2</b> of <b>2</b> items.</div>
+<table class="table table-sm table-striped table-bordered"><thead>
+<tr><th>#</th><th><a href="/user?sort=username" data-sort="username">Username</a></th><th><a href="/user?sort=email" data-sort="email">Email</a></th><th><a href="/user?sort=user_type" data-sort="user_type">User Type</a></th><th><a href="/user?sort=status" data-sort="status">Status</a></th><th><a href="/user?sort=role_id" data-sort="role_id">Role</a></th><th width="130">&nbsp;</th></tr><tr id="w0-filters" class="filters"><td>&nbsp;</td><td><input type="text" class="form-control" name="UserSearch[username]"></td><td><input type="text" class="form-control" name="UserSearch[email]"></td><td><select class="form-control" name="UserSearch[user_type]">
+<option value=""></option>
+<option value="9">Administrator</option>
+<option value="8">Merchant</option>
+<option value="7">Corporate</option>
+<option value="6">Customer</option>
+</select></td><td><select class="form-control" name="UserSearch[status]">
+<option value=""></option>
+<option value="0">Un-authorized</option>
+<option value="1">Authorized</option>
+</select></td><td><select class="form-control" name="UserSearch[role_id]">
+<option value=""></option>
+<option value="3">accountant</option>
+<option value="4">guest</option>
+<option value="2">merchant</option>
+<option value="1">system admin</option>
+</select></td><td>&nbsp;</td></tr>
+</thead>
+<tbody>
+<tr data-key="1"><td>1</td><td>longcop</td><td><a href="mailto:admin@gmail.com">admin@gmail.com</a></td><td>Administrator</td><td><label class="badge badge-success">Authorized</label></td><td>System Admin</td><td> <a class="btn btn-info btn-sm" href="/user/view/1" title="View"><i class="fa fa-th-large"></i></a> <a class="btn btn-success btn-sm" href="/user/update/1" title="Update"><i class="fa fa-edit"></i></a> <a class="btn btn-danger btn-sm delete" href="#delete" title="Delete" data-key="1" data-selected="longcop" data-page="user"><i class="fa fa-trash"></i></a></td></tr>
+<tr data-key="120"><td>2</td><td>drey2020</td><td><a href="mailto:drey2020@gmail.com">drey2020@gmail.com</a></td><td>Administrator</td><td><label class="badge badge-warning">Un-authorized</label></td><td>System Admin</td><td> <a class="btn btn-info btn-sm" href="/user/view/120" title="View"><i class="fa fa-th-large"></i></a> <a class="btn btn-success btn-sm" href="/user/update/120" title="Update"><i class="fa fa-edit"></i></a> <a class="btn btn-danger btn-sm delete" href="#delete" title="Delete" data-key="120" data-selected="drey2020" data-page="user"><i class="fa fa-trash"></i></a></td></tr>
+</tbody></table>
+</div></div>
+{% endblock %}

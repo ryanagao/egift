@@ -1,0 +1,23 @@
+{% extends 'egiftadmin/layout/site.html' %}
+{% load static %}
+
+{% block content %}
+<section class="content-section">
+    <div class="container width-640 pad-t-b-50">
+        <div class="col col-1-2 v-align-middle center-767">
+            <div class="size-200 font-bold width-480 marg-center lht-adj">User Log-In</div>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form}}
+                <input class="marg-t-20" type="submit" value="Log-In">
+            </form>
+            <div class="size-75 marg-t-20">
+                Dont have an Account? <a href="{% url 'merchant_signup' %}">Sign Up</a>
+            </div>
+        </div>
+        <div class="col col-1-2 v-align-middle hide-767">
+            <img src="{% static 'egiftadmin/images/log-in-side-img.png' %}" alt="Log-In" width=500 height=500>
+        </div>
+    </div>
+</section>
+{% endblock %}

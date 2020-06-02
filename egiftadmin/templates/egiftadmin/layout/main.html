@@ -1,0 +1,190 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'egiftadmin/node_modules/@coreui/icons/css/coreui-icons.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'egiftadmin/node_modules/flag-icon-css/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'egiftadmin/node_modules/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'egiftadmin/node_modules/simple-line-icons/css/simple-line-icons.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'egiftadmin/summernote/dist/summernote-bs4.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'egiftadmin/sweetalert/sweetalert.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'egiftadmin/vendors/pace-progress/css/pace.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'egiftadmin/js/jquery-ui/jquery-ui.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'egiftadmin/select2/select2.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'egiftadmin/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'egiftadmin/css/custom.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'egiftadmin/css/egift-templates.css' %}">
+
+    <script src="{% static 'egiftadmin/node_modules/popper.js/dist/umd/popper.min.js' %}"></script>
+    <script src="{% static 'egiftadmin/node_modules/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'egiftadmin/node_modules/pace-progress/pace.min.js' %}"></script>
+    <script src="{% static 'egiftadmin/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static 'egiftadmin/node_modules/@coreui/coreui/dist/js/coreui.min.js' %}"></script>
+    <script src="{% static 'egiftadmin/summernote/dist/summernote-bs4.js' %}"></script>
+    <script src="{% static 'egiftadmin/node_modules/chart.js/dist/Chart.min.js' %}"></script>
+    <script src="{% static 'egiftadmin/node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js' %}"></script>
+    <script src="{% static 'egiftadmin/sweetalert/sweetalert.min.js' %}"></script>
+    <script src="{% static 'egiftadmin/js/jquery-ui/jquery-ui.js' %}"></script>
+    <script src="{% static 'egiftadmin/select2/select2.full.min.js' %}"></script>
+    <script src="{% static 'egiftadmin/js/html2canvas.min.js' %}"></script>
+    <script src="{% static 'egiftadmin/js/vue.min.js' %}"></script>
+    <script src="{% static 'egiftadmin/js/main.js' %}"></script>
+    <script src="{% static 'egiftadmin/js/custom.js' %}"></script>
+	<meta charset="<?= Yii::$app->charset ?>">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dashboard</title>
+	<script>
+		var base_url = '<?= Yii::$app->urlManager->baseUrl ?>/';
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		// Shared ID
+		gtag('config', 'UA-118965717-3');
+		// Bootstrap ID
+		gtag('config', 'UA-118965717-5');
+	</script>
+</head>
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+	<header class="app-header navbar">
+		<button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<a class="navbar-brand" href="#">
+			<img class="navbar-brand-full" src="{% static 'egiftadmin/images/default/eGiftRewards-logo-app-icon-colored.png' %}" alt="CoreUI Logo">
+			<img class="navbar-brand-minimized" src="{% static 'egiftadmin/images/default/eGiftRewards-logo-app-icon-colored.png' %}"  alt="CoreUI Logo">
+		</a>
+		<button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<ul class="nav navbar-nav d-md-down-none">
+			<li class="nav-item px-3">
+				<a class="nav-link" href="#">
+					{{ user.profile.get.name }}
+				</a>
+			</li>
+		</ul>
+	  	<ul class="nav navbar-nav ml-auto">
+			<li class="nav-item d-md-down-none">
+				<a class="nav-link" href="#">
+					<i class="icon-bell"></i>
+					<!-- <span class="badge badge-pill badge-danger">5</span> -->
+				</a>
+			</li> 
+			<li class="nav-item dropdown">
+		  		<a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+					<img class="img-avatar" src="{{ user.profile.get.logo.url }}" alt="admin@bootstrapmaster.com">
+		  		</a>
+		  		<div class="dropdown-menu dropdown-menu-right">
+					<div class="dropdown-header text-center">
+			  			<strong>Account</strong>
+					</div>
+					<?= Html::a('<i class="fa fa-lock"></i> Credentials', ['/credential'], [
+						'class' => 'dropdown-item'
+					]) ?>
+					<div class="dropdown-header text-center">
+						<strong>Settings</strong>
+					</div>
+					<?= Html::a('<i class="fa fa-user"></i> Profile', ['/profile'], [
+						'class' => 'dropdown-item'
+					]) ?>
+					<?= Html::beginForm(['/site/logout'], 'post', ['id' => 'frm-logout']) ?>
+					<?= Html::endForm() ?>
+					<a class="dropdown-item btn-logout" href="#">
+						<i class="fa fa-power-off"></i> 
+						Logout
+					</a>
+		  		</div>
+			</li>
+	  	</ul>
+	</header>
+
+    <div class="app-body"> 
+        <!-- <li class="nav-title">Theme</li> -->
+        <div class="sidebar">
+			<nav class="sidebar-nav ps">
+				<ul class="nav">
+					<li class="nav-item"><a class="nav-link" href="http://192.168.1.22/dashboard" data-url="dashboard/index"><i class="nav-icon fa fa-cog"></i> Dashboard</a></li>
+					<li class="nav-item nav-dropdown"><a class="nav-link nav-dropdown-toggle" href="#" data-url=""><i class="nav-icon fa fa-group"></i> Customers</a>
+						<ul class="nav-dropdown-items">
+							<li class="nav-item"><a class="nav-link" href="http://192.168.1.22/customer" data-url="customer/index"><i class="nav-icon fa fa-group"></i> My Customer</a></li>
+							<li class="nav-item"><a class="nav-link" href="http://192.168.1.22/customer/statistics" data-url="customer/statistics"><i class="nav-icon fa fa-industry"></i> Statistics</a></li>
+						</ul>
+					</li>
+					<li class="nav-item nav-dropdown"><a class="nav-link nav-dropdown-toggle" href="#" data-url=""><i class="nav-icon fa fa-money"></i> Sales</a>
+						<ul class="nav-dropdown-items"><li class="nav-item"><a class="nav-link" href="http://192.168.1.22/sales" data-url="sales/index"><i class="nav-icon fa fa-money"></i> All Sales</a></li>
+							<li class="nav-item"><a class="nav-link" href="http://192.168.1.22/egift-transaction" data-url="egift-transaction/index"><i class="nav-icon fa fa-building"></i> Egift Transaction</a></li>
+							<li class="nav-item"><a class="nav-link" href="http://192.168.1.22/sales/statistics" data-url="sales/statistics"><i class="nav-icon fa fa-industry"></i> Statistics</a></li>
+						</ul>
+					</li>
+					<li class="nav-item nav-dropdown"><a class="nav-link nav-dropdown-toggle" href="#" data-url=""><i class="nav-icon fa fa-dashboard"></i> Corporates</a>
+						<ul class="nav-dropdown-items"><li class="nav-item"><a class="nav-link" href="http://192.168.1.22/order" data-url="order/index"><i class="nav-icon fa fa-bell"></i> Order</a></li>
+							<li class="nav-item"><a class="nav-link" href="http://192.168.1.22/discount-setting" data-url="discount-setting/index"><i class="nav-icon "></i> Discount Settings</a></li>
+							<li class="nav-item"><a class="nav-link" href="http://192.168.1.22/corporate/statistics" data-url="corporate/statistics"><i class="nav-icon "></i> Statistics</a></li>
+						</ul>
+					</li>
+					<li class="nav-item nav-dropdown open"><a class="nav-link nav-dropdown-toggle" href="#" data-url=""><i class="nav-icon fa fa-gift"></i> Egift</a>
+						<ul class="nav-dropdown-items"><li class="nav-item"><a class="nav-link" href="{% url 'egift_create' %}" data-url="egift/create"><i class="nav-icon fa fa-balance-scale	"></i> Add New</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'egift' %}" data-url="egift/index"><i class="nav-icon fa fa-area-chart"></i> Approved Egift</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'for_approval' %}" data-url="egift/for-approval"><i class="nav-icon fa fa-asterisk"></i> For Approval</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'usage' %}" data-url="egift-usage/index"><i class="nav-icon fa fa-area-chart"></i> Usage</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'wishlists' %}" data-url="wishlist/index"><i class="nav-icon fa fa-shopping-cart"></i> WishList</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'branches' %}" data-url="branches/index"><i class="nav-icon fa fa-star"></i> Rating</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'statistics' %}" data-url="egift/statistics"><i class="nav-icon fa fa-area-chart"></i> Statistics</a></li>
+						</ul>
+					</li>
+					<li class="nav-item nav-dropdown open"><a class="nav-link nav-dropdown-toggle" href="#" data-url=""><i class="nav-icon fa fa-shopping-cart"></i> Freebies Item</a>
+						<ul class="nav-dropdown-items"><li class="nav-item"><a class="nav-link" href="{% url 'freebies_create' %}" data-url="freebies/create"><i class="nav-icon fa fa-asterisk"></i> Add New</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'freebies' %}" data-url="freebies/index"><i class="nav-icon fa fa-shopping-cart"></i> All Freebies Item</a></li>
+						</ul>
+					</li>
+					<li class="nav-item nav-dropdown open"><a class="nav-link nav-dropdown-toggle" href="#" data-url=""><i class="nav-icon fa fa-group"></i> My Account</a>
+						<ul class="nav-dropdown-items"><li class="nav-item"><a class="nav-link" href="{% url 'nature_of_business' %}" data-url="nature-of-business/index"><i class="nav-icon fa fa-asterisk"></i> Nature Of Business</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'follower' %}" data-url="follower/index"><i class="nav-icon fa fa-group"></i> Followers</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'branches' %}" data-url="branches/index"><i class="nav-icon fa fa-building"></i> Branches</a></li>
+							<li class="nav-item open"><a class="nav-link active" href="{% url 'profile' %}" data-url="user/profile"><i class="nav-icon fa fa-user-secret"></i> Profile</a></li>
+						</ul>
+					</li>
+				</ul>
+				<div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+					<div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+				</div>
+				<div class="ps__rail-y" style="top: 0px; right: 0px;">
+					<div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+				</div>
+			</nav>
+			<button class="sidebar-minimizer brand-minimizer" type="button"></button>
+		</div>
+                 
+        <main class="main">
+			<!-- Breadcrumb-->
+			<ul class="breadcrumb"><li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+				{% block breadcrumb %}
+				{% endblock %}
+			</ul>
+			<div class="container-fluid">
+				<div class="animated fadeIn">
+					<div class="card">
+						<div class="card-body">		
+							{% block content %}
+							{% endblock %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+    </div>
+
+    <footer class="app-footer">
+		<div>
+			<span>© 2020 Egift.</span>
+		</div>
+		<div class="ml-auto">
+			<span>Merchant Name</span>
+		</div>
+	</footer>
+</body>

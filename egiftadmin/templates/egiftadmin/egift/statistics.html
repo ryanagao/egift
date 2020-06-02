@@ -1,0 +1,28 @@
+{% extends 'egiftadmin/layout/main.html'  %}
+{% load static %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">Statistics</li>
+{% endblock %}
+
+{% block content %}
+<div class="egift-usage-index">
+ 
+    <div class="row">
+		<div class="col-md-10">
+    		<h2>Statistics</h2> 
+    		<p class="lead">Egift Creation | Egift Usage <br>
+    		<b>As of <span class="filter-year">2020</span></b></p>
+		</div>
+		<div class="col-md-2">
+			<select class="form-control" id="select-year">
+	    			    			<option value="2020">2020</option>
+	    			    			<option value="2019">2019</option>
+	    			    			<option value="2018">2018</option>
+	    			    	</select>
+		</div>
+	</div> 
+    <hr>
+    <div id="main-chart-wrapper"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div><canvas class="chart chartjs-render-monitor" id="main-chart" height="250" width="805" style="display: block; width: 805px; height: 250px;"></canvas></div>
+</div>
+{% endblock %}

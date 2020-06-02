@@ -1,0 +1,496 @@
+{% extends 'egiftadmin/layout/main.html'  %}
+{% load static %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">Create Egifts</li>
+{% endblock %}
+
+{% block content %}
+<div class="egift-create">
+
+    <h2>Create Egift</h2> <hr>
+
+    
+    <div class="egift-form">
+
+    <form id="w0" action="/egift/create" method="post" enctype="multipart/form-data">
+        <nav>
+            <div class="nav nav-tabs" role="tablist">
+                <a class="nav-item nav-link active" data-toggle="tab" href="#nav-template" role="tab">Template</a>
+                <a class="nav-item nav-link " data-toggle="tab" href="#nav-details" role="tab">Details</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#nav-branches" role="tab">Branches</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#nav-variety" role="tab">Price Variety</a> 
+                <a class="nav-item nav-link" data-toggle="tab" href="#nav-freebies" role="tab">Freebies</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#nav-images" role="tab">Featured Images</a>
+            </div>
+        </nav>
+
+        
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-template" role="tabpanel">
+
+                <div class="radio">
+                    <div class="row">
+                                                    <div class="col-md-4"> <br>
+                                <label> 
+                                    <input type="radio" name="Egift[template_id]" value="1"> 
+                                    Whole Background                                </label>
+                               
+                                <div class="egift-template egift-template-01 border-default" [img]="">
+    <div class="egift-template-content text-center">
+        <div class="egift-template-logo">
+            <img class="merchant-icon" src="/uploads/merchant/SIM-1551149737167-b187be14-d8cf-4924-a8b6-f54ae35ef34f.jpg" alt="merchant-logo" width="100" height="100">
+        </div>
+        <div class="egift-template-title size-200 font-bold color-white">
+            [name]
+        </div>
+        <div class="egift-template-subtitle size-125 font-bold color-white">
+            [description]
+        </div>
+    </div>
+</div>                            </div> 
+                                                    <div class="col-md-4"> <br>
+                                <label> 
+                                    <input type="radio" name="Egift[template_id]" value="2"> 
+                                    Red Left                                </label>
+                               
+                                <div class="egift-template egift-template-02 border-default">
+        <div class="egift-template-content text-left">
+            <div class="egift-col egift-col-1-2 egift-col-txt">
+                <div class="egift-col-content">
+                    <div class="egift-template-logo">
+                        <img class="merchant-icon" src="/uploads/merchant/SIM-1551149737167-b187be14-d8cf-4924-a8b6-f54ae35ef34f.jpg" alt="merchant-logo" width="100" height="100">
+                    </div>
+                    <div class="egift-template-title size-200 font-bold color-white">
+                        [name]
+                    </div>
+                    <div class="egift-template-subtitle size-125 font-bold color-white marg-t-10">
+                        [description]
+                    </div>
+                </div>
+            </div>
+            <div class="egift-col egift-col-1-2 egift-col-img" [img]=""></div>
+        </div>
+    </div>                            </div> 
+                                                    <div class="col-md-4"> <br>
+                                <label> 
+                                    <input type="radio" name="Egift[template_id]" value="3"> 
+                                    Right Red                                </label>
+                               
+                                <div class="egift-template egift-template-03 border-default" id="template-holder">
+        <div class="egift-template-content text-left">
+            <div class="egift-col egift-col-1-2 egift-col-txt">
+                <div class="egift-col-content">
+                    <div class="egift-template-logo">
+                        <img class="merchant-icon" src="/uploads/merchant/SIM-1551149737167-b187be14-d8cf-4924-a8b6-f54ae35ef34f.jpg" alt="merchant-logo" width="100" height="100">
+                    </div>
+                    <div class="egift-template-title size-200 font-bold color-white">
+                        [name]
+                    </div>
+                    <div class="egift-template-subtitle size-125 font-bold color-white marg-t-10">
+                        [description]
+                    </div>
+                </div>
+            </div>
+            <div class="egift-col egift-col-1-2 egift-col-img" [img]=""></div>
+        </div>
+    </div>                            </div> 
+                                                    <div class="col-md-4"> <br>
+                                <label> 
+                                    <input type="radio" name="Egift[template_id]" value="4"> 
+                                    Footer Background                                </label>
+                               
+                                <div class="egift-template egift-template-04 border-default">
+        <div class="egift-template-content text-center">
+            <div class="egift-row egift-row-img" [img]=""></div>
+            <div class="egift-row egift-row-txt">
+                <div class="egift-row-content">
+                    <div class="egift-template-logo">
+                        <img class="merchant-icon" src="/uploads/merchant/SIM-1551149737167-b187be14-d8cf-4924-a8b6-f54ae35ef34f.jpg" alt="merchant-logo" width="100" height="100">
+                    </div>
+                    <div class="egift-template-title size-200 font-bold color-white">
+                        [name]
+                    </div>
+                    <div class="egift-template-subtitle size-125 font-bold color-white marg-t-10">
+                        [description]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                            </div> 
+                                                    <div class="col-md-4"> <br>
+                                <label> 
+                                    <input type="radio" name="Egift[template_id]" value="5"> 
+                                    Header Background                                </label>
+                               
+                                <div class="egift-template egift-template-05 border-default">
+        <div class="egift-template-content text-center">
+            <div class="egift-row egift-row-img" [img]=""></div>
+            <div class="egift-row egift-row-txt">
+                <div class="egift-row-content">
+                    <div class="egift-template-logo">
+                        <img class="merchant-icon" src="/uploads/merchant/SIM-1551149737167-b187be14-d8cf-4924-a8b6-f54ae35ef34f.jpg" alt="merchant-logo" width="100" height="100">
+                    </div>
+                    <div class="egift-template-title size-200 font-bold color-white">
+                        [name]
+                    </div>
+                    <div class="egift-template-subtitle size-125 font-bold color-white marg-t-10">
+                        [description]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                            </div> 
+                                            </div> 
+                </div> 
+            </div>
+            <div class="tab-pane fade " id="nav-details" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-6">
+                        
+                        <div class="form-group field-egift-name required">
+<label class="control-label" for="egift-name">Egift Name</label>
+<input type="text" id="egift-name" class="form-control" name="Egift[name]" aria-required="true">
+
+<div class="help-block"></div>
+</div>
+                        <div class="form-group field-egift-stock required">
+<label class="control-label" for="egift-stock">Stock</label>
+<input type="text" id="egift-stock" class="form-control" name="Egift[stock]" aria-required="true">
+
+<div class="help-block"></div>
+</div>
+                        <div class="form-group field-egift-description required">
+<label class="control-label" for="egift-description">Description</label>
+<textarea id="egift-description" class="form-control" name="Egift[description]" rows="6" aria-required="true"></textarea>
+
+<div class="help-block"></div>
+</div>                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                            <div class="form-group field-egift-promo required">
+
+<input type="hidden" name="Egift[promo]" value="0"><label><input type="checkbox" id="egift-promo" name="Egift[promo]" value="1"> On-Promo</label>
+
+<div class="help-block"></div>
+</div>                        </div> 
+
+
+                        <div id="div-range">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group field-egift-start_at">
+<label class="control-label" for="egift-start_at">Start at</label>
+<input type="date" id="egift-start_at" class="form-control" name="Egift[start_at]" value="2020-06-02">
+
+<div class="help-block"></div>
+</div>                                </div> 
+
+                               
+                                <div class="col-md-6">
+                                    <div class="form-group field-egift-end_at">
+<label class="control-label" for="egift-end_at">End at</label>
+<input type="date" id="egift-end_at" class="form-control" name="Egift[end_at]" value="2020-07-02">
+
+<div class="help-block"></div>
+</div>                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tab-pane fade" id="nav-branches" role="tabpanel">
+                <label id="price-variety-table" class="control-label" for="deploy-to-branches">
+                    <input type="checkbox" id="deploy-to-branches">
+                    Deploy to Branches
+                </label>
+                <table class="table table-bordered table-sm">
+                    <tbody>
+                                            </tbody>
+                </table>
+            </div>
+
+            <div class="tab-pane fade" id="nav-variety" role="tabpanel">
+                <div class="row"> 
+                    <div class="col-md-4"><br> 
+                        <div class="form-group field-pricevariety-orig_price required">
+                            <input name="PriceVariety[orig_price]" class="form-control" id="pricevariety-orig_price" aria-invalid="true" aria-required="true" type="number" placeholder="Original Price (₱)">
+                            <div class="help-block"></div>
+                        </div>
+
+                        <div class="form-group field-pricevariety-sale_price required">
+                            <input name="PriceVariety[sale_price]" class="form-control" id="pricevariety-sale_price" aria-invalid="true" aria-required="true" type="hidden" placeholder="Sale Price (₱)">
+
+                            <select id="percent-discount" class="form-control">
+                                <option value="">Select Discount Percentage</option>
+                                <option value="10">10%</option>
+
+                                 
+                                    <option value="11">11%</option>
+                                 
+                                    <option value="12">12%</option>
+                                 
+                                    <option value="13">13%</option>
+                                 
+                                    <option value="14">14%</option>
+                                 
+                                    <option value="15">15%</option>
+                                 
+                                    <option value="16">16%</option>
+                                 
+                                    <option value="17">17%</option>
+                                 
+                                    <option value="18">18%</option>
+                                 
+                                    <option value="19">19%</option>
+                                 
+                                    <option value="20">20%</option>
+                                 
+                                    <option value="21">21%</option>
+                                 
+                                    <option value="22">22%</option>
+                                 
+                                    <option value="23">23%</option>
+                                 
+                                    <option value="24">24%</option>
+                                 
+                                    <option value="25">25%</option>
+                                 
+                                    <option value="26">26%</option>
+                                 
+                                    <option value="27">27%</option>
+                                 
+                                    <option value="28">28%</option>
+                                 
+                                    <option value="29">29%</option>
+                                 
+                                    <option value="30">30%</option>
+                                 
+                                    <option value="31">31%</option>
+                                 
+                                    <option value="32">32%</option>
+                                 
+                                    <option value="33">33%</option>
+                                 
+                                    <option value="34">34%</option>
+                                 
+                                    <option value="35">35%</option>
+                                 
+                                    <option value="36">36%</option>
+                                 
+                                    <option value="37">37%</option>
+                                 
+                                    <option value="38">38%</option>
+                                 
+                                    <option value="39">39%</option>
+                                 
+                                    <option value="40">40%</option>
+                                 
+                                    <option value="41">41%</option>
+                                 
+                                    <option value="42">42%</option>
+                                 
+                                    <option value="43">43%</option>
+                                 
+                                    <option value="44">44%</option>
+                                 
+                                    <option value="45">45%</option>
+                                 
+                                    <option value="46">46%</option>
+                                 
+                                    <option value="47">47%</option>
+                                 
+                                    <option value="48">48%</option>
+                                 
+                                    <option value="49">49%</option>
+                                 
+                                    <option value="50">50%</option>
+                                 
+                                    <option value="51">51%</option>
+                                 
+                                    <option value="52">52%</option>
+                                 
+                                    <option value="53">53%</option>
+                                 
+                                    <option value="54">54%</option>
+                                 
+                                    <option value="55">55%</option>
+                                 
+                                    <option value="56">56%</option>
+                                 
+                                    <option value="57">57%</option>
+                                 
+                                    <option value="58">58%</option>
+                                 
+                                    <option value="59">59%</option>
+                                 
+                                    <option value="60">60%</option>
+                                 
+                                    <option value="61">61%</option>
+                                 
+                                    <option value="62">62%</option>
+                                 
+                                    <option value="63">63%</option>
+                                 
+                                    <option value="64">64%</option>
+                                 
+                                    <option value="65">65%</option>
+                                 
+                                    <option value="66">66%</option>
+                                 
+                                    <option value="67">67%</option>
+                                 
+                                    <option value="68">68%</option>
+                                 
+                                    <option value="69">69%</option>
+                                 
+                                    <option value="70">70%</option>
+                                 
+                                    <option value="71">71%</option>
+                                 
+                                    <option value="72">72%</option>
+                                 
+                                    <option value="73">73%</option>
+                                 
+                                    <option value="74">74%</option>
+                                 
+                                    <option value="75">75%</option>
+                                 
+                                    <option value="76">76%</option>
+                                 
+                                    <option value="77">77%</option>
+                                 
+                                    <option value="78">78%</option>
+                                 
+                                    <option value="79">79%</option>
+                                 
+                                    <option value="80">80%</option>
+                                 
+                                    <option value="81">81%</option>
+                                 
+                                    <option value="82">82%</option>
+                                 
+                                    <option value="83">83%</option>
+                                 
+                                    <option value="84">84%</option>
+                                 
+                                    <option value="85">85%</option>
+                                 
+                                    <option value="86">86%</option>
+                                 
+                                    <option value="87">87%</option>
+                                 
+                                    <option value="88">88%</option>
+                                 
+                                    <option value="89">89%</option>
+                                 
+                                    <option value="90">90%</option>
+                                 
+                                    <option value="91">91%</option>
+                                 
+                                    <option value="92">92%</option>
+                                 
+                                    <option value="93">93%</option>
+                                 
+                                    <option value="94">94%</option>
+                                 
+                                    <option value="95">95%</option>
+                                 
+                                    <option value="96">96%</option>
+                                 
+                                    <option value="97">97%</option>
+                                 
+                                    <option value="98">98%</option>
+                                 
+                                    <option value="99">99%</option>
+                                 
+                                    <option value="100">100%</option>
+                                
+                            </select>
+
+                            <div class="help-block"></div>
+                        </div>
+
+                        <a href="#price-variety-table" class="btn btn-primary btn-block btn-add-price-variety">
+                            ADD <i class="fa fa-refresh"></i>
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="loader"></div>
+                        <div class="price-variety"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="nav-freebies" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-4"> <br>
+                        <div class="form-group field-egift-freebies-select required">
+                            <select class="form-control" id="freebies-select">
+                                <option value="" disabled="" selected="">Select Freebies</option>
+                                                            </select>
+                            <div class="help-block"></div>
+                        </div>
+
+                        <div class="form-group field-egift-freebies-qty required">
+                            <input id="freebies-qty" min="1" type="number" class="form-control" placeholder="Quantity">
+                                
+                            <div class="help-block"></div>
+                        </div> 
+                        <a href="#freebies-table" class="btn btn-primary btn-block btn-add-freebies">
+                             ADD
+                        </a>
+                        <br>
+
+                        <div class="freebies-details"></div>
+
+                    </div> 
+                    <div class="col-md-8">
+                        <div class="loader-2"></div>
+                        <div class="freebies-table"> </div>
+                    </div> 
+                </div> 
+            </div>
+
+            <div class="tab-pane fade" id="nav-images" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group field-egift-image_banner_input required">
+<label class="control-label" for="egift-image_banner_input">Upload Egift Banner Image</label>
+<input type="hidden" name="Egift[image_banner_input]" value=""><input type="file" id="egift-image_banner_input" class="image-input" name="Egift[image_banner_input]" aria-required="true">
+
+<div class="help-block"></div>
+</div>
+                        <img id="image-preview-banner" src="/" alt="" class="img-thumbnail" width="200" height="200">
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group field-egift-image_input required">
+<label class="control-label" for="egift-image_input">Upload Featured Image</label>
+<input type="hidden" name="Egift[image_input]" value=""><input type="file" id="egift-image_input" class="image-input" name="Egift[image_input]" aria-required="true">
+
+<div class="help-block"></div>
+</div>
+                        <h1><i class="fa fa-spinner"></i></h1>
+
+                        <img id="image-preview" src="/" alt="" class="img-thumbnail" width="200" height="200">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group text-center"> <br>
+            <button type="submit" class="btn btn-success btn-lg ">Preview</button>        </div>
+          
+     
+
+        
+
+    </form>
+</div>
+
+</div>
+{% endblock %}

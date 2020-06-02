@@ -1,0 +1,24 @@
+{% extends 'egiftadmin/layout/main.html'  %}
+{% load static %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">Freebies</li>
+{% endblock %}
+
+{% block content %}
+<div class="freebies-index">
+
+    <h2>Freebies</h2> <hr>
+    
+    <p><a class="btn btn-success" href="/freebies/create">Create Freebies</a></p> 
+    
+
+    <div id="w0" class="grid-view">
+<table class="table table-sm table-striped table-bordered"><thead>
+<tr><th>#</th><th><a href="/freebies?sort=name" data-sort="name">Name</a></th><th><a href="/freebies?sort=description" data-sort="description">Description</a></th><th width="130">&nbsp;</th></tr><tr id="w0-filters" class="filters"><td>&nbsp;</td><td><input type="text" class="form-control" name="FreebiesSearch[name]"></td><td><input type="text" class="form-control" name="FreebiesSearch[description]"></td><td>&nbsp;</td></tr>
+</thead>
+<tbody>
+<tr><td colspan="4"><div class="empty">No results found.</div></td></tr>
+</tbody></table>
+</div></div>
+{% endblock %}

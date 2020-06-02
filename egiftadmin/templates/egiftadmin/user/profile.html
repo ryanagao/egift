@@ -1,0 +1,56 @@
+{% extends 'egiftadmin/layout/main.html'  %}
+{% load static %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">Profile Information</li>
+{% endblock %}
+
+{% block content %}
+<div class="user-view">
+    <h2>
+        <img src="{{ profile.logo.url }}" class="img-profile">
+        Profile Information
+    </h2>
+    <hr>
+    {% if user.is_authenticated %}
+        <p>
+            <a href="{% url 'update_profile' %}"><button class="btn btn-primary btn-sm">Update Basic Information</button></a>
+        </p>
+    {% endif %}
+    <div class="row">
+        <div class="col-md-8">
+            <table id="w0" class="table table-striped table-bordered detail-view">
+                <tbody>
+                    <tr><th>Name</th><td>{{ profile.name }}</td></tr>
+                    <tr><th>Description</th><td>{{ profile.description }}</td></tr>
+                    <tr><th>Telephone No</th><td>{{ profile.tel_no }}</td></tr>
+                    <tr><th>Address</th><td>{{ profile.address }}</td></tr>
+                    <tr><th>Terms And Condition</th><td>{{ profile.terms_and_condition }}</td></tr>
+                    <tr><th>Updated At</th><td>{{ profile.updated_at }}</td></tr>
+                </tbody>
+            </table>        
+        </div>
+        <div class="col-md-4">
+            <img src="{{ profile.logo_banner.url }}" class="img-thumbnail">
+        </div>
+    </div>
+    <br>
+    <h2>Credentials</h2>
+    <hr>
+    {% if user.is_authenticated %}
+        <p>
+            <a href="{% url 'credential' %}"><button class="btn btn-primary btn-sm">Update Basic Information</button></a>
+        </p>
+    {% endif %}
+    <table id="w1" class="table table-striped table-bordered detail-view">
+        <tbody>
+        <tr><th>Username</th><td>{{ user.username }}</td></tr>
+        <tr><th>User Email</th><td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td></tr>
+        <tr><th>Access Token</th><td>{{ user.access_token }}</td></tr>
+        <tr><th>Auth Key</th><td>{{ user.auth_key }}</td></tr>
+        <tr><th>User  User Type</th><td>{{ user.get_user_type_display }}</td></tr>
+        <tr><th>User  Status</th><td><label class="badge badge-success">{{ user.get_status_display }}</label></td></tr>
+        <tr><th>Registered</th><td>{{ user.created_at }}</td></tr>
+        <tr><th>Updated At</th><td>{{ user.updated_at }}</td></tr></tbody></table></a></td></tr>
+</div>
+{% endblock %}

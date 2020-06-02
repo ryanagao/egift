@@ -1,0 +1,42 @@
+{% extends 'egiftadmin/layout/main.html'  %}
+{% load static %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">For Approval Egifts</li>
+{% endblock %}
+
+{% block content %}
+<div class="egift-index">
+
+    <h2>For Approval Egifts</h2> <hr>
+    
+    
+
+    <div id="w0" class="grid-view">
+<table class="table table-sm table-striped table-bordered"><thead>
+<tr><th>#</th><th><a href="/egift/for-approval?sort=merchant_id" data-sort="merchant_id">Merchant</a></th><th><a href="/egift/for-approval?sort=name" data-sort="name">Egift Name</a></th><th><a href="/egift/for-approval?sort=description" data-sort="description">Description</a></th><th><a href="/egift/for-approval?sort=stock" data-sort="stock">Stock</a></th><th><a href="/egift/for-approval?sort=promo" data-sort="promo">On-Promo</a></th><th width="130">&nbsp;</th></tr><tr id="w0-filters" class="filters"><td>&nbsp;</td><td><select class="form-control" name="EgiftSearch[merchant_id]">
+<option value=""></option>
+<option value="61">all day</option>
+<option value="96">allen</option>
+<option value="53">Alley</option>
+<option value="79">Belo</option>
+<option value="57">Bench</option>
+<option value="89">Dev Solutions</option>
+<option value="74">FAI Restaurant</option>
+<option value="111">FilwebAsia</option>
+<option value="58">goldilocks</option>
+<option value="100">IT Corp</option>
+<option value="62">IT solutions</option>
+<option value="52">Niu</option>
+<option value="51">Vikings</option>
+</select></td><td><input type="text" class="form-control" name="EgiftSearch[name]"></td><td><input type="text" class="form-control" name="EgiftSearch[description]"></td><td><input type="text" class="form-control" name="EgiftSearch[stock]"></td><td><select class="form-control" name="EgiftSearch[promo]">
+<option value=""></option>
+<option value="0">No</option>
+<option value="1">Yes</option>
+</select></td><td>&nbsp;</td></tr>
+</thead>
+<tbody>
+<tr><td colspan="7"><div class="empty">No results found.</div></td></tr>
+</tbody></table>
+</div></div>
+{% endblock %}

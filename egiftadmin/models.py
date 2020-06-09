@@ -5,6 +5,14 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, \
 from django.utils.crypto import get_random_string
 
 
+class TimeStampedModel(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
+
+
 class UserManager(BaseUserManager):
 
     def create_user(self, email, password=None, **extra_fields):
@@ -33,7 +41,7 @@ class UserManager(BaseUserManager):
         return user
 
 
-class User(AbstractBaseUser, PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin, TimeStampedModel):
     """Custom user model"""
 
     ROLE_1 = 1
@@ -76,8 +84,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     access_token = models.CharField(max_length=256)
     auth_key = models.CharField(max_length=256)
     status = models.IntegerField(choices=STATUS_CHOICES, default=ACTIVE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -102,7 +108,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.auth_key
 
 
-class Profile(models.Model):
+class Profile(TimeStampedModel):
     
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='profile')
     name = models.CharField(max_length=256)
@@ -118,14 +124,12 @@ class Profile(models.Model):
     terms_and_condition = models.TextField()
     opening_hour = models.CharField(max_length=32)
     closing_hour = models.CharField(max_length=32)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
 
 
-class About(models.Model):
+class About(TimeStampedModel):
     logo = models.TextField()
     description = models.TextField()
     address = models.TextField()
@@ -141,28 +145,24 @@ class About(models.Model):
     terms_and_condition = models.TextField()
     privacy_policy = models.TextField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
     def __str__(self):
         return self.email
 
 
-class AccountRequest(models.Model):
+class AccountRequest(TimeStampedModel):
     name = models.CharField(max_length=191)
     email = models.CharField(max_length=191)
     telephone_no = models.CharField(max_length=20)
     description = models.TextField()
     address = models.TextField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
     def __str__(self):
         return self.name
 
 
-class Branches(models.Model):
+class Branches(TimeStampedModel):
     merchant_id = models.IntegerField()
     name = models.CharField(max_length=191)
     description = models.TextField()
@@ -171,8 +171,6 @@ class Branches(models.Model):
     username = models.CharField(max_length=256)
     password = models.CharField(max_length=256)
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
     def __str__(self):
         return self.name
@@ -188,63 +186,51 @@ class EgiftFreebies(models.Model):
     updated_at = models.DateTimeField()
 
 
-class EgiftTemplates(models.Model):
+class EgiftTemplates(TimeStampedModel):
     name = models.CharField(max_length=191)
     description = models.TextField()
     content = models.TextField()
     css = models.TextField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class EgiftTransaction(models.Model):
+class EgiftTransaction(TimeStampedModel):
     egift_id = models.IntegerField()
     transaction_id = models.IntegerField()
     quantity = models.IntegerField()
     orig_price = models.FloatField()
     sale_price = models.FloatField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class EgiftUsage(models.Model):
+class EgiftUsage(TimeStampedModel):
     egift_id = models.IntegerField()
     user_id = models.IntegerField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class EgiftUser(models.Model):
+class EgiftUser(TimeStampedModel):
     user_id = models.IntegerField()
     egift_id = models.IntegerField()
     orig_price = models.FloatField()
     sale_price = models.FloatField()
     to = models.IntegerField()
     status = models.IntegerField()
-    updated_at = models.DateTimeField()
-    created_at = models.DateTimeField()
 
 
-class Faq(models.Model):
+class Faq(TimeStampedModel):
     question = models.CharField(max_length=191)
     answer = models.TextField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class Follower(models.Model):
+class Follower(TimeStampedModel):
     merchant_id = models.IntegerField()
     user_id = models.IntegerField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class Freebies(models.Model):
+class Freebies(TimeStampedModel):
     user_id = models.IntegerField()
     name = models.CharField(max_length=256)
     description = models.TextField()
@@ -255,32 +241,24 @@ class Freebies(models.Model):
     qty = models.FloatField()
     image = models.TextField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class Group(models.Model):
+class Group(TimeStampedModel):
     user_id = models.IntegerField()
     name = models.CharField(max_length=256)
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class Icon(models.Model):
+class Icon(TimeStampedModel):
     name = models.CharField(max_length=191)
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class Measurement(models.Model):
+class Measurement(TimeStampedModel):
     user_id = models.IntegerField()
     name = models.CharField(max_length=256)
     description = models.TextField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField(blank=True, null=True)
 
 
 class Migration(models.Model):
@@ -292,37 +270,31 @@ class Month(models.Model):
     name = models.CharField(max_length=20)
 
 
-class NatureOfBusiness(models.Model):
+class NatureOfBusiness(TimeStampedModel):
     user_id = models.IntegerField()
     icon_id = models.IntegerField()
     name = models.CharField(max_length=128)
     image = models.TextField(blank=True, null=True)
     description = models.TextField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class Newspeed(models.Model):
+class Newspeed(TimeStampedModel):
     egift_id = models.IntegerField()
     user_id = models.IntegerField()
     content = models.TextField()
     link = models.CharField(max_length=128)
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class Order(models.Model):
+class Order(TimeStampedModel):
     user_id = models.IntegerField()
     egift_id = models.IntegerField()
     quantity = models.IntegerField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class Personnel(models.Model):
+class Personnel(TimeStampedModel):
     fullname = models.CharField(max_length=191)
     company_name = models.CharField(max_length=191)
     position = models.CharField(max_length=191)
@@ -330,123 +302,95 @@ class Personnel(models.Model):
     inspiring_message = models.TextField()
     logo = models.TextField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class PointManagement(models.Model):
+class PointManagement(TimeStampedModel):
     point = models.IntegerField()
     benchmark = models.IntegerField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class PriceVariety(models.Model):
+class PriceVariety(TimeStampedModel):
     user_id = models.IntegerField()
     egift_id = models.IntegerField()
     orig_price = models.FloatField()
     sale_price = models.FloatField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class Rating(models.Model):
+class Rating(TimeStampedModel):
     merchant_id = models.IntegerField()
     user_id = models.IntegerField()
     rate = models.IntegerField()
     message = models.TextField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class ReferralPoint(models.Model):
+class ReferralPoint(TimeStampedModel):
     user_id = models.IntegerField()
     points = models.IntegerField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class Role(models.Model):
+class Role(TimeStampedModel):
     name = models.CharField(max_length=191)
     access = models.TextField()
     actions = models.TextField()
     navigation = models.TextField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class Sales(models.Model):
+class Sales(TimeStampedModel):
     merchant_id = models.IntegerField()
     branch_id = models.IntegerField()
     transaction_id = models.IntegerField()
     amount = models.FloatField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class Setting(models.Model):
+class Setting(TimeStampedModel):
     referral_point_referrer = models.IntegerField()
     referral_point_referred = models.IntegerField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class Supplier(models.Model):
+class Supplier(TimeStampedModel):
     user_id = models.IntegerField()
     name = models.CharField(max_length=256)
     description = models.TextField()
     address = models.TextField()
     contact_no = models.CharField(max_length=32)
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class Transaction(models.Model):
+class Transaction(TimeStampedModel):
     transaction_no = models.CharField(max_length=128)
     user_id = models.IntegerField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class UserFriend(models.Model):
+class UserFriend(TimeStampedModel):
     user_id = models.IntegerField()
     friend_id = models.IntegerField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class UserGroup(models.Model):
+class UserGroup(TimeStampedModel):
     user_id = models.IntegerField()
     group_id = models.IntegerField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class UserPoint(models.Model):
+class UserPoint(TimeStampedModel):
     user_id = models.IntegerField()
     points = models.IntegerField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
-class Wishlist(models.Model):
+class Wishlist(TimeStampedModel):
     user_id = models.IntegerField()
     egift_id = models.IntegerField()
     status = models.IntegerField()
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
 
 
 class Commentmeta(models.Model):
